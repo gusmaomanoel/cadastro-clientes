@@ -248,18 +248,15 @@ export default {
 
     removeClient() {
       let allClients = JSON.parse(localStorage.getItem("clients"));
-      console.log("Lista de clientes antes da remoção:", allClients);
       const clientToRemove = allClients.findIndex(
         (c) => c.ID === this.itemData.ID
       );
-      console.log("Índice do cliente a ser removido:", clientToRemove);
       if (clientToRemove !== -1) {
         allClients = allClients.filter((c, index) => index !== clientToRemove);
-        console.log("Lista de clientes após remoção:", allClients);
         localStorage.setItem("clients", JSON.stringify(allClients));
         window.location.reload();
         this.close();
-      } else console.log("Cliente com ID 3 não encontrado.");
+      } 
     },
   },
 };
