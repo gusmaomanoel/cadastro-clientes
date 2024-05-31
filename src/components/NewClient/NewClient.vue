@@ -143,8 +143,15 @@ export default {
         if (currentItems && currentItems.length) {
           this.items = JSON.parse(localStorage.getItem("clients"));
         }
-        let id = this.items.length;
+
+        let id = 0;
+        this.items.length
+          ? this.items.map((item) => {
+              id = item.ID > id ? item.ID : id;
+            })
+          : id;
         id++;
+
         this.items.push({
           ID: id,
           NOME: this.data.NOME,
@@ -239,13 +246,15 @@ export default {
 
     removeClient() {
       let allClients = JSON.parse(localStorage.getItem("clients"));
-      const clientToRemove = allClients.find((c) => c.ID === this.itemData.ID);
+      const clientToRemove = allClients.findIndex(
+        (c) => c.ID === this.itemData.ID
+      );
       if (clientToRemove !== -1) {
-        allClients = allClients.splice(clientToRemove, 1);
+        allClients = allClients.filter((c, index) => index !== clientToRemove);
         localStorage.setItem("clients", JSON.stringify(allClients));
         window.location.reload();
         this.close();
-      }
+      } 
     },
   },
 };
