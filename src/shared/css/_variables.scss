@@ -1,0 +1,32 @@
+// font-sizes 
+$medium: 0.5rem;
+$mediumBig: 0.7;
+$common: 1rem;
+$medium: 1.5rem;
+$bigger: 1.8rem;
+
+
+// colors
+$white: #fff;
+$blue-100: #007bff;
+$black: #000000;
+$blue-101: #f5f9fb;
+$gray: #d4e5fd;
+$gray-500: #adb5bd;
+$gray-900: #212529;
+$required: #dc3545;
+$softblue-gray:#e7eff9;
+$warning: color('yellow', 20);
+$dark: color('gray', 70);
+$soft: color('gray', 50);
+$lightgray: color('gray', 30);
+$white: color('white', 0);
+$black: color('black', 100);
+$backrequired: color('red', 10);
+$primary: color('cerulean', 80);
+$secundary: color('cerulean', 70);
+$link: color('cerulean', 60);
+$input: color('gray', 70);
+$background1: color('gray', 1);
+$background2: color('neutral white', 3);
+$softblue: #007bff//color('cerulean', 10);
