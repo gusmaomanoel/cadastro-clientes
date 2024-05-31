@@ -40,13 +40,6 @@ export default {
     invalidEmail: { type: Boolean, default: false },
     maxLength: { type: Number, default: null },
   },
-  data() {
-    return {
-      showLabel: false,
-      items: [],
-      showClientModal: false,
-    };
-  },
   methods: {
     openClientModal() {
       this.showClientModal = !this.showClientModal;

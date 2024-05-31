@@ -118,9 +118,7 @@ export default {
   },
   data() {
     return {
-      showLabel: false,
       items: [],
-      showClientModal: false,
       validated: false,
       data: {},
       invalidEmail: false,

@@ -7,15 +7,7 @@
 </template>
 <script>
 export default {
-  name: "NavBar",
-  components: {},
-  props: {},
-  data() {
-    return {
-      showLabel: false,
-      items: [],
-    };
-  },
+  name: "NavBar"
 };
 </script>
 
