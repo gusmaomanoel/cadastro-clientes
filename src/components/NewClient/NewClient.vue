@@ -145,8 +145,15 @@ export default {
         if (currentItems && currentItems.length) {
           this.items = JSON.parse(localStorage.getItem("clients"));
         }
-        let id = this.items.length;
+
+        let id = 0;
+        this.items.length
+          ? this.items.map((item) => {
+              id = item.ID > id ? item.ID : id;
+            })
+          : id;
         id++;
+
         this.items.push({
           ID: id,
           NOME: this.data.NOME,
@@ -241,13 +248,18 @@ export default {
 
     removeClient() {
       let allClients = JSON.parse(localStorage.getItem("clients"));
-      const clientToRemove = allClients.find((c) => c.ID === this.itemData.ID);
+      console.log("Lista de clientes antes da remoção:", allClients);
+      const clientToRemove = allClients.findIndex(
+        (c) => c.ID === this.itemData.ID
+      );
+      console.log("Índice do cliente a ser removido:", clientToRemove);
       if (clientToRemove !== -1) {
-        allClients = allClients.splice(clientToRemove, 1);
+        allClients = allClients.filter((c, index) => index !== clientToRemove);
+        console.log("Lista de clientes após remoção:", allClients);
         localStorage.setItem("clients", JSON.stringify(allClients));
         window.location.reload();
         this.close();
-      }
+      } else console.log("Cliente com ID 3 não encontrado.");
     },
   },
 };
